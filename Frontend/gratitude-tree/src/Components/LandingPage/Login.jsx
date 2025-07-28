@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { isValidEmail } from '../../Functions/emailvalidation.js';
-import dotenv from 'dotenv'
 
-dotenv.config();
 const Login = (props) => {
   const [message, updateMessage] = useState('');
   const [Logging, setLogging] = useState(false);
   const navigate = useNavigate();
+  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+
 
   useEffect(() => {
     updateMessage('');
@@ -52,7 +52,7 @@ const Login = (props) => {
     }
 
     try {
-      const response = await axios.post(`${process.env.LOCALHOST_URL}auth/Login/Email`, {
+      const response = await axios.post(`${baseurl}auth/Login/Email`, {
         email,
         password,
       });

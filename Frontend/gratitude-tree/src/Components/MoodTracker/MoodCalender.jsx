@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import axios from 'axios';
-import dotenv from 'dotenv'
-//handle rate limiter of 401
 
-dotenv.config();
 const moodColors = {
   Happy: 'bg-yellow-400',
   Sad: 'bg-blue-400',
@@ -19,6 +16,8 @@ const MoodCalendar = ({ userId }) => {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [moodEntries, setMoodEntries] = useState({});
   const [error, setError] = useState('');
+  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+
 
 useEffect(() => {
   const controller = new AbortController(); 
@@ -29,7 +28,7 @@ useEffect(() => {
       const end = currentMonth.endOf('month').format('YYYY-MM-DD');
 
       const response = await axios.get(
-        `${process.env.LOCALHOST_URL}mood/${userId}?start=${start}&end=${end}`,
+        `${baseurl}mood/${userId}?start=${start}&end=${end}`,
         { withCredentials: true, signal: controller.signal }
       );
 

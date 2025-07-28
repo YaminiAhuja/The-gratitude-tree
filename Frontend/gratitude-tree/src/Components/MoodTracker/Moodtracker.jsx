@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MoodCalendar from './MoodCalender';
 import axios from 'axios';
-import dotenv from 'dotenv'
 
-dotenv.config();
 const Moodtracker = (props) => {
   const data = useLoaderData();
   const [currentmood, changeMood] = useState('');
@@ -13,6 +11,7 @@ const Moodtracker = (props) => {
   const [pastmoods, getPastMoods] = useState(undefined);
   const [submitted, setSubmit] = useState(0);
   const [aitips, setTips] = useState([]);
+  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
   const moodEmojis = [
     ['Happy', '😊'],
     ['Sad', '😢'],
@@ -35,7 +34,7 @@ const Moodtracker = (props) => {
     }
 
     try {
-      const response = await axios.post(`${process.env.LOCALHOST_URL}mood/add/${props.id}`, {
+      const response = await axios.post(`${baseurl}mood/add/${props.id}`, {
         mood: currentmood,
         rate: intensity
       });
@@ -56,7 +55,7 @@ const Moodtracker = (props) => {
 
   async function tips() {
     try {
-      const response = await axios.post(`${process.env.LOCALHOST_URL}mood/tips`, {
+      const response = await axios.post(`${baseurl}mood/tips`, {
         mood: currentmood,
         rate: intensity
       });

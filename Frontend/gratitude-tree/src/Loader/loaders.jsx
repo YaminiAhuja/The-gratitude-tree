@@ -1,10 +1,9 @@
 import axios from "axios";
-import dotenv from 'dotenv'
-dotenv.config();
 
 export async function PromptLoader(){
+    const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
     try{
-    const resquest = await axios.get(`${process.env.LOCALHOST_URL}prompts`);
+    const resquest = await axios.get(`${baseurl}prompts`);
     return resquest.data;
     }
 

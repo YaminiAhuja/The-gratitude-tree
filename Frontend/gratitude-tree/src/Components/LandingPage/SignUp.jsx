@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { isValidEmail } from '../../Functions/emailvalidation.js';
 import { useNavigate } from 'react-router-dom';
-import dotenv from 'dotenv'
 
-dotenv.config();
 const SignUp = (props) => {
 
   const [isSigning, updateSign] = useState(false);
@@ -62,7 +60,7 @@ const SignUp = (props) => {
     }
 
     try {
-      const response = await axios.post(`${process.env.LOCALHOST_URL}auth/Signup/Email`, {
+      const response = await axios.post(`${baseurl}auth/Signup/Email`, {
         email,
         password,
         username,

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { data, useNavigate } from 'react-router';
-import dotenv from 'dotenv'
 
-dotenv.config();
 const Entries = (props) => {
   const [entries, setEntries] = useState([]);
   const [message, setMessage] = useState('');
   const [flag, setFlag] = useState(0);
   const navigate = useNavigate();
+  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+
 
   useEffect(() => {
     async function onLoad() {
@@ -17,7 +17,7 @@ const Entries = (props) => {
         setFlag(1);
       } else {
         try {
-          const result = await axios.get(`${process.env.LOCALHOST_URL}journal/${props.id}`);
+          const result = await axios.get(`${baseutrl}journal/${props.id}`);
 
           if (result.status === 200) {
             setEntries(result.data.entry || []);

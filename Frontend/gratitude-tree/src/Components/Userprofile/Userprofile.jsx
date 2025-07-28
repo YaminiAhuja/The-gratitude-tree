@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import dotenv from 'dotenv'
 
-dotenv.config();
 const UserProfile = (props) => {
 
   const [message, updateMessage] = useState('');
@@ -11,6 +9,8 @@ const UserProfile = (props) => {
   const [username,setUserName] = useState("");
   const [email,setEmail] = useState("");
   const navigate = useNavigate();
+  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+
 
    if (props.id === 'notLogin') {
     return (
@@ -30,7 +30,7 @@ const UserProfile = (props) => {
     const controller = new AbortController(); 
     async function getUserProfile(){
       try{
-        const response = await axios.get(`${process.env.LOCALHOST_URL}users/${props.id}`,{
+        const response = await axios.get(`${baseurl}users/${props.id}`,{
           signal: controller.signal
         });
         if(response.status === 200){
@@ -78,7 +78,7 @@ const UserProfile = (props) => {
         return;
     } 
     try{
-    const response  = await axios.put(`${process.env.LOCALHOST_URL}users/${props.id}`,{
+    const response  = await axios.put(`${baseurl}users/${props.id}`,{
       username : formusername
     });
     if(response.status === 200){
