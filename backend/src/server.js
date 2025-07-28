@@ -26,7 +26,7 @@ app.use(cors({ //cjeck and learn about them
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true  
 }));
-
+app.options('*', cors());
 app.use(Ratelimiter);
 app.use("/",MainPageRouters);
 app.use("/auth",AuthenticationRouter);
