@@ -21,13 +21,19 @@ const app = express();
 
 
 app.use(express.json());
+
+app.options('*any',cors({ 
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true  
+}))
+
 app.use(cors({ 
   origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true  
 }));
 
-app.options('*',cors());
 
 app.use(Ratelimiter);
 app.use("/",MainPageRouters);
