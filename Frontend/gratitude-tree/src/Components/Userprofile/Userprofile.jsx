@@ -30,7 +30,7 @@ const UserProfile = (props) => {
     const controller = new AbortController(); 
     async function getUserProfile(){
       try{
-        const response = await axios.get(`${baseurl}users/${props.id}`,{
+        const response = await axios.get(`${baseurl}/users/${props.id}`,{
           signal: controller.signal
         });
         if(response.status === 200){
@@ -78,7 +78,7 @@ const UserProfile = (props) => {
         return;
     } 
     try{
-    const response  = await axios.put(`${baseurl}users/${props.id}`,{
+    const response  = await axios.put(`${baseurl}/users/${props.id}`,{
       username : formusername
     });
     if(response.status === 200){

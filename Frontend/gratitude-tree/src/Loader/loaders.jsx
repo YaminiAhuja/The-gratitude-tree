@@ -3,7 +3,7 @@ import axios from "axios";
 export async function PromptLoader(){
     const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
     try{
-    const resquest = await axios.get(`${baseurl}prompts`);
+    const resquest = await axios.get(`${baseurl}/prompts`);
     return resquest.data;
     }
 

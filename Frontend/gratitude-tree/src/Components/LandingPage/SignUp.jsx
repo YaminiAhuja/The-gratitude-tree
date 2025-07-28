@@ -60,7 +60,7 @@ const SignUp = (props) => {
     }
 
     try {
-      const response = await axios.post(`${baseurl}auth/Signup/Email`, {
+      const response = await axios.post(`${baseurl}/auth/Signup/Email`, {
         email,
         password,
         username,

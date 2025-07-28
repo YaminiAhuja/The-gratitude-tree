@@ -25,7 +25,7 @@ const NavBar = (props) => {
   async function Logoutfunc(){
     setLogout(false);
     try{
-    const response = await axios.get(`${baseurl}auth/logout/${props.id}`)
+    const response = await axios.get(`${baseurl}/auth/logout/${props.id}`)
       if(response.status===200) {
       props.setUserId('notLogin');
       localStorage.removeItem('gratitude-id');

@@ -28,7 +28,7 @@ useEffect(() => {
       const end = currentMonth.endOf('month').format('YYYY-MM-DD');
 
       const response = await axios.get(
-        `${baseurl}mood/${userId}?start=${start}&end=${end}`,
+        `${baseurl}/mood/${userId}?start=${start}&end=${end}`,
         { withCredentials: true, signal: controller.signal }
       );
 

@@ -17,7 +17,7 @@ const Entries = (props) => {
         setFlag(1);
       } else {
         try {
-          const result = await axios.get(`${baseutrl}journal/${props.id}`);
+          const result = await axios.get(`${baseutrl}/journal/${props.id}`);
 
           if (result.status === 200) {
             setEntries(result.data.entry || []);

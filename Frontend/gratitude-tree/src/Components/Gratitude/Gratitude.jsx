@@ -56,7 +56,7 @@ const Gratitude = (props) => {
     setMessage("");
     changeGratitude(1);
     try {
-      const res = await axios.get(`${baseurl}gratitude/${props.id}`);
+      const res = await axios.get(`${baseurl}/gratitude/${props.id}`);
       const arr = res.data.text.split('||');
       setResponse(arr);
       changeGratitude(2);

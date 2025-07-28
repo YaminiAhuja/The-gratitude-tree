@@ -71,7 +71,7 @@ const Journal = (props) => {
     }
 
     try {
-      const response = await axios.post(`${baseurl}journal/postJournal/${userId}`, {
+      const response = await axios.post(`${baseurl}/journal/postJournal/${userId}`, {
         entry,
         prompt,
       });
@@ -102,7 +102,7 @@ const Journal = (props) => {
     }
 
     try{   
-      const response = await axios.post(`${baseurl}prompts/aiprompt`, {
+      const response = await axios.post(`${baseurl}/prompts/aiprompt`, {
       entry,
     });
    

@@ -52,7 +52,7 @@ const Login = (props) => {
     }
 
     try {
-      const response = await axios.post(`${baseurl}auth/Login/Email`, {
+      const response = await axios.post(`${baseurl}/auth/Login/Email`, {
         email,
         password,
       });
