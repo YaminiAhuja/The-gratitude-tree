@@ -27,7 +27,7 @@ app.use(cors({
   credentials: true  
 }));
 
-app.options('/{*any}',cors());
+app.options('*',cors());
 
 app.use(Ratelimiter);
 app.use("/",MainPageRouters);
