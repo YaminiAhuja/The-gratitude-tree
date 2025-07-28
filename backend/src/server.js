@@ -21,8 +21,7 @@ const app = express();
 
 
 app.use(express.json());
-
-app.use(cors({ //cjeck and learn about them
+app.use(cors({ 
   origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true  
@@ -34,6 +33,7 @@ app.options("*",cors({
   credentials: true  
 }));
 
+app.use(Ratelimiter);
 app.use("/",MainPageRouters);
 app.use("/auth",AuthenticationRouter);
 app.use("/prompts",PromptRouter);
