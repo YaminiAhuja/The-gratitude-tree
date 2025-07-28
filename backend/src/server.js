@@ -26,12 +26,7 @@ app.use(cors({ //cjeck and learn about them
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true  
 }));
-app.options('*', cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true
-}));
-app.use(Ratelimiter);
+
 app.use("/",MainPageRouters);
 app.use("/auth",AuthenticationRouter);
 app.use("/prompts",PromptRouter);
