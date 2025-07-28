@@ -9,7 +9,7 @@ const NavBar = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoutval,setLogout] = useState(true);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
   useEffect(()=>{
 

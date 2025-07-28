@@ -11,7 +11,7 @@ const Gratitude = (props) => {
   const [play, isPlaying] = useState(false);
   const navigate = useNavigate();
   const synth = window.speechSynthesis;
-  const baseurl = Import.env.
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
   useEffect(() => {
     synth.cancel();

@@ -7,7 +7,7 @@ const Login = (props) => {
   const [message, updateMessage] = useState('');
   const [Logging, setLogging] = useState(false);
   const navigate = useNavigate();
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
   useEffect(() => {

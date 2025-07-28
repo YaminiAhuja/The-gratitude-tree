@@ -9,7 +9,7 @@ const UserProfile = (props) => {
   const [username,setUserName] = useState("");
   const [email,setEmail] = useState("");
   const navigate = useNavigate();
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
    if (props.id === 'notLogin') {

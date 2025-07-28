@@ -11,7 +11,7 @@ const Moodtracker = (props) => {
   const [pastmoods, getPastMoods] = useState(undefined);
   const [submitted, setSubmit] = useState(0);
   const [aitips, setTips] = useState([]);
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
   const moodEmojis = [
     ['Happy', '😊'],
     ['Sad', '😢'],

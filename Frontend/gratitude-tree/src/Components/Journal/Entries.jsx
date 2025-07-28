@@ -7,7 +7,7 @@ const Entries = (props) => {
   const [message, setMessage] = useState('');
   const [flag, setFlag] = useState(0);
   const navigate = useNavigate();
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
   useEffect(() => {

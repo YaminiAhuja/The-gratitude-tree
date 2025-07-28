@@ -16,7 +16,7 @@ const MoodCalendar = ({ userId }) => {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [moodEntries, setMoodEntries] = useState({});
   const [error, setError] = useState('');
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
 useEffect(() => {

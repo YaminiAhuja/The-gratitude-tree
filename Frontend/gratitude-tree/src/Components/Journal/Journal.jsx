@@ -11,7 +11,7 @@ const Journal = (props) => {
   const [currentPrompt, changePrompt] = useState('');
   const [generateingPrompt,setPrompt] = useState(false); 
   const navigate = useNavigate();
-  const baseurl = Import.meta.env.VITE_LOCALHOST_URL;
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
   const prompts = useLoaderData();
