@@ -1,9 +1,11 @@
-// 
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import dotenv from 'dotenv'
 
+
+dotenv.config();
 const Journal = (props) => {
   const [promptsIndex, setPromptIndex] = useState(0);
   const [isSaving, setSave] = useState(false);
@@ -70,7 +72,7 @@ const Journal = (props) => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:3000/journal/postJournal/${userId}`, {
+      const response = await axios.post(`${process.env.LOCALHOST_URL}journal/postJournal/${userId}`, {
         entry,
         prompt,
       });
@@ -101,7 +103,7 @@ const Journal = (props) => {
     }
 
     try{   
-      const response = await axios.post('http://localhost:3000/prompts/aiprompt', {
+      const response = await axios.post(`${process.env.LOCALHOST_URL}prompts/aiprompt`, {
       entry,
     });
    

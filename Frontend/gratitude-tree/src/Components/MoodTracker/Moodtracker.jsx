@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MoodCalendar from './MoodCalender';
 import axios from 'axios';
+import dotenv from 'dotenv'
 
+dotenv.config();
 const Moodtracker = (props) => {
   const data = useLoaderData();
   const [currentmood, changeMood] = useState('');
@@ -33,7 +35,7 @@ const Moodtracker = (props) => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:3000/mood/add/${props.id}`, {
+      const response = await axios.post(`${process.env.LOCALHOST_URL}mood/add/${props.id}`, {
         mood: currentmood,
         rate: intensity
       });
@@ -54,7 +56,7 @@ const Moodtracker = (props) => {
 
   async function tips() {
     try {
-      const response = await axios.post('http://localhost:3000/mood/tips', {
+      const response = await axios.post(`${process.env.LOCALHOST_URL}mood/tips`, {
         mood: currentmood,
         rate: intensity
       });

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { GrPrevious, GrNext, GrPlayFill, GrPauseFill } from 'react-icons/gr';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
-
+import dotenv from 'dotenv'
+dotenv.config();
 const Gratitude = (props) => {
   const [getGratitude, changeGratitude] = useState(0);
   const [response, setResponse] = useState([]);
@@ -55,7 +56,7 @@ const Gratitude = (props) => {
     setMessage("");
     changeGratitude(1);
     try {
-      const res = await axios.get(`http://localhost:3000/gratitude/${props.id}`);
+      const res = await axios.get(`${process.env.LOCALHOST_URL}gratitude/${props.id}`);
       const arr = res.data.text.split('||');
       setResponse(arr);
       changeGratitude(2);

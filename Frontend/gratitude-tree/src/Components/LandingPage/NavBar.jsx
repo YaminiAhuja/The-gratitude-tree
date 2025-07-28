@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/gratitude-logo.png';
 import axios from 'axios';
+import dotenv from 'dotenv'
 
+
+dotenv.config();
 const NavBar = (props) => {
 
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const NavBar = (props) => {
   async function Logoutfunc(){
     setLogout(false);
     try{
-    const response = await axios.get(`http://localhost:3000/auth/logout/${props.id}`)
+    const response = await axios.get(`${process.env.LOCALHOST_URL}auth/logout/${props.id}`)
       if(response.status===200) {
       props.setUserId('notLogin');
       localStorage.removeItem('gratitude-id');
