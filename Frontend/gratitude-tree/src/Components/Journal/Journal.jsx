@@ -164,6 +164,7 @@ const Journal = (props) => {
         <div className="mb-6">
           <h2 className="text-xl font-bold text-pink-700 mb-2">Today's Prompt</h2>
           <div className="bg-pink-100 text-pink-800 p-4 rounded border border-pink-300 shadow-sm mb-3">
+            {console.log(currentPrompt)}
             {currentPrompt}
           </div>
 
