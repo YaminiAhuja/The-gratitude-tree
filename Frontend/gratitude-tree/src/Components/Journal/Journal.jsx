@@ -108,7 +108,7 @@ const Journal = (props) => {
       console.log(response)
     if (response.status === 200) {
       changePrompt(response.data.response[0].Prompt);
-      console.log(currentPrompt);
+      console.log("the current prompt is  = ",currentPrompt);
       setGeneratePrompt(false);
       setPrompt(false);
 
