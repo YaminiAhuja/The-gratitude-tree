@@ -8,7 +8,7 @@ const Journal = (props) => {
   const [isSaving, setSave] = useState(false);
   const [message, setMessage] = useState('');
   const [generatePrompt, setGeneratePrompt] = useState(false);
-  const [currentPrompt, changePrompt] = useState('');
+  const [currentPrompt] = useRef ('');
   const [generateingPrompt,setPrompt] = useState(false); 
   const navigate = useNavigate();
   const baseurl = import.meta.env.VITE_LOCALHOST_URL;
@@ -25,7 +25,7 @@ const Journal = (props) => {
     if (val) {
       setPromptIndex(val);
     }
-    changePrompt(prompts[promptsIndex].prompt);
+    currentPrompt.current = prompts[promptsIndex].prompt;
     return () => {
       localStorage.setItem('prompt-index', promptsIndex);
     };
@@ -107,7 +107,7 @@ const Journal = (props) => {
     });
       console.log(response);
     if (response.status === 200) {
-      changePrompt(response.data.response[0].Prompt);
+      currentPrompt.current = (response.data.response[0].Prompt);
       setGeneratePrompt(false);
       setPrompt(false);
 
@@ -163,7 +163,7 @@ const Journal = (props) => {
         <div className="mb-6">
           <h2 className="text-xl font-bold text-pink-700 mb-2">Today's Prompt</h2>
           <div className="bg-pink-100 text-pink-800 p-4 rounded border border-pink-300 shadow-sm mb-3">
-            {currentPrompt}
+            {currentPrompt.current}
           </div>
 
           <div className="flex gap-4 mb-4">

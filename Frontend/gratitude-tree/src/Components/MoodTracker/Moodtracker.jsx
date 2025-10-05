@@ -48,6 +48,7 @@ const Moodtracker = (props) => {
         setSubmit(0);
       }
     } catch (err) {
+      console.log(err);
       setMessage(err.response?.body?.message ||'Request failed. Try again.');
       setSubmit(0);
     }
