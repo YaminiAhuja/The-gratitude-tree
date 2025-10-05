@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -8,7 +8,7 @@ const Journal = (props) => {
   const [isSaving, setSave] = useState(false);
   const [message, setMessage] = useState('');
   const [generatePrompt, setGeneratePrompt] = useState(false);
-  const [currentPrompt] = useRef ('');
+  const [currentPrompt, changePrompt] = useState('');
   const [generateingPrompt,setPrompt] = useState(false); 
   const navigate = useNavigate();
   const baseurl = import.meta.env.VITE_LOCALHOST_URL;
@@ -25,7 +25,7 @@ const Journal = (props) => {
     if (val) {
       setPromptIndex(val);
     }
-    currentPrompt.current = prompts[promptsIndex].prompt;
+    changePrompt(prompts[promptsIndex].prompt);
     return () => {
       localStorage.setItem('prompt-index', promptsIndex);
     };
@@ -105,9 +105,10 @@ const Journal = (props) => {
       const response = await axios.post(`${baseurl}/prompts/aiprompt`, {
       entry,
     });
-      console.log(response);
+      console.log(response)
     if (response.status === 200) {
-      currentPrompt.current = (response.data.response[0].Prompt);
+      changePrompt(response.data.response[0].Prompt);
+      console.log(currentPrompt);
       setGeneratePrompt(false);
       setPrompt(false);
 
@@ -163,7 +164,7 @@ const Journal = (props) => {
         <div className="mb-6">
           <h2 className="text-xl font-bold text-pink-700 mb-2">Today's Prompt</h2>
           <div className="bg-pink-100 text-pink-800 p-4 rounded border border-pink-300 shadow-sm mb-3">
-            {currentPrompt.current}
+            {currentPrompt}
           </div>
 
           <div className="flex gap-4 mb-4">
