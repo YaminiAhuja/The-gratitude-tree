@@ -10,6 +10,7 @@ const SignUp = (props) => {
   const [isSigning, updateSign] = useState(false);
   const [message, updateMessage] = useState('');
   const navigate = useNavigate();
+  const baseurl = import.meta.env.VITE_LOCALHOST_URL;
 
 
     if (props.id !== 'notLogin') {
