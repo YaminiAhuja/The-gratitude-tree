@@ -1,4 +1,4 @@
- import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
