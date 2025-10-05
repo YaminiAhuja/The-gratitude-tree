@@ -79,6 +79,7 @@ const SignUp = (props) => {
         updateSign(false);
       }
     } catch (error) {
+      console.log(error);
       updateMessage(error.response?.data?.message || 'Something went wrong');
       updateSign(false);
     }
