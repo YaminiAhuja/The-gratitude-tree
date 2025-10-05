@@ -6,7 +6,7 @@ const MainLayout = (props) => {
   return (
     <>
      <NavBar id = {props.id} username = {props.username} setUserId = {props.setUserId}></NavBar>
-      <Outlet /> {/* renders the matched child route */}
+      <Outlet /> 
     </>
   );
 };
