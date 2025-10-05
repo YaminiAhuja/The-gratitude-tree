@@ -105,7 +105,7 @@ const Journal = (props) => {
       const response = await axios.post(`${baseurl}/prompts/aiprompt`, {
       entry,
     });
-   
+      console.log(response);
     if (response.status === 200) {
       changePrompt(response.data.response[0].Prompt);
       setGeneratePrompt(false);
