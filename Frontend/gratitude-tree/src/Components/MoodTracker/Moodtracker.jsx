@@ -34,7 +34,7 @@ const Moodtracker = (props) => {
     }
 
     try {
-      const response = await axios.post(`${baseurl}mood/add/${props.id}`, {
+      const response = await axios.post(`${baseurl}/mood/add/${props.id}`, {
         mood: currentmood,
         rate: intensity
       });
