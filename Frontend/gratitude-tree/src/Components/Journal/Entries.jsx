@@ -18,7 +18,8 @@ const Entries = (props) => {
       } else {
         try {
           const result = await axios.get(`${baseurl}/journal/${props.id}`);
-
+          console.log(result);
+          
           if (result.status === 200) {
             setEntries(result.data.entry || []);
             setFlag(0);
@@ -30,8 +31,7 @@ const Entries = (props) => {
           setMessage(error.response?.data?.message || "something unexpected occured");
           setFlag(1);
         }
-      }
-    }
+      }}
 
     onLoad();
   }, [props.id]);
