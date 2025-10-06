@@ -80,15 +80,7 @@ Be warm, welcoming, and hopeful (e.g., “I am ready to begin again.”) but per
 Never return an empty or vague response.
 give them prompts great enough that they dont go anywhere and always come back to this website
 Keep the tone calm, positive, and emotionally supportive. Avoid generic advice — make it personal to the data above.
-                tip1||tip2||tip3||tip4||tip5 so that i can split it `,
-            onfig: {
-                'response_mime_type': 'application/json',
-                'response_schema': {
-                    type: Type.ARRAY,
-                    items: {
-                        type: Type.STRING
-                    }
-                }
+                tip1||tip2||tip3||tip4||tip5 so that i can split it `
             }
         })
 
