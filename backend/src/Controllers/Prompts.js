@@ -47,7 +47,9 @@ OUTPUT: Only the journal prompt like diary entry prompt. Nothing else.
     );
     }catch(error){
         res.status(500).json({
-            message : "server error occured."
+            message : "server error occured.",
+            error : error.message,
+             error2 : error
         })
     }
 }
