@@ -59,7 +59,9 @@ export async function getPrompts(req,res){
     res.status(200).json(request);
     }catch(error){
          res.status(500).json({
-            message : "server error occured."
+            message : "server error occured.",
+             error : error.message,
+             error2 : error
         })
     }
 }
